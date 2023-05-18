@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "bootstrap/dist/css/bootstrap.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -8,7 +9,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: white) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -18,10 +19,52 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
+  background: (to bottom, transparent, rgb(var(--background-end-rgb)))
     rgb(var(--background-start-rgb));
+}
+
+.button-container {
+  margin-left: 75px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  margin-bottom: 20px;
+  margin-top: 25px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.button-container a.btn {
+  background-color: #ffffff; /* Fundal alb */
+  color: #000000; /* Text negru */
+}
+.imgDiv {
+  flex: 0 0 auto;
+}
+
+.imgDiv img {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+  padding-bottom: 15px;
+}
+
+.input-group {
+  margin-right: 20px;
+}
+
+.form-control {
+  box-shadow: none;
+  border: 1px solid orange;
+  border-radius: 25px 25px;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid orange;
+}
+
+.custom-input {
+  width: 500px;
 }
