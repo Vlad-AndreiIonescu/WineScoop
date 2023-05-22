@@ -36,11 +36,13 @@ const Products = () => {
       setCurrentPage(currentPage - 1);
     }
   };
-  const totalPages = Math.ceil(productsData.length / 9);
+  const totalPages = Math.ceil(productsData.length / 10);
 
   const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+    const nextPage = currentPage + 1;
+    const hasNextPage = nextPage <= totalPages;
+    if (hasNextPage) {
+      setCurrentPage(nextPage);
     }
   };
   return (
@@ -83,7 +85,6 @@ const Products = () => {
               Previous
             </a>
           </li>
-
           <li class="page-item">
             <a
               className="page-link"
@@ -94,6 +95,17 @@ const Products = () => {
               Next
             </a>
           </li>
+          <a
+            class="btn btn-primary text-center"
+            href="#"
+            S
+            role="button"
+            style={{
+              paddingLeft: "2rem",
+            }}
+          >
+            Link
+          </a>
         </ul>
       </div>
     </div>

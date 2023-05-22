@@ -22,6 +22,8 @@ body {
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .button-container {
@@ -154,7 +156,8 @@ body {
   justify-content: center;
 }
 
-/* .disabled {
-  color: red;
-  pointer-events: none;
-} */
+.page-item a:active,
+.page-item a:focus {
+  box-shadow: none;
+  background-color: #8fe9f0;
+}
