@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export const Header = () => {
   const headerStyle = {
-    position: "absolute",
     fontFamily: "Poppins, sans-serif",
     fontWeight: "bold",
     display: "flex",
