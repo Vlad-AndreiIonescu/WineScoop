@@ -26,6 +26,13 @@ const putRecord = async (record) => {
   return collection.updateOne({ _id: new ObjectId(id) }, { $set: record });
 };
 
+// const patchRecord = async (record) => {
+//   const collection = await getCollection(COLLECTION_NAME);
+//   const id = record._id;
+//   delete record._id;
+//   return collection.updateOne({ _id: new ObjectId(id) }, { $set: record });
+// };
+
 const deleteRecord = async (id) => {
   const collection = await getCollection(COLLECTION_NAME);
   return collection.deleteOne({ _id: new ObjectId(id) });
@@ -36,6 +43,7 @@ export default async function handler(req, res) {
     req.method === "GET" ||
     req.method === "POST" ||
     req.method === "PUT" ||
+    // req.method === "PATCH" ||
     req.method === "DELETE";
   if (!isAllowedMethod) {
     return sendMethodNotAllowed(res);
@@ -55,6 +63,10 @@ export default async function handler(req, res) {
   } else if (req.method === "PUT") {
     const record = req.body;
     const result = await putRecord(record);
+    return sendOk(res, result);
+  } else if (req.method === "PATCH") {
+    const record = req.body;
+    const result = await patchRecord(record);
     return sendOk(res, result);
   } else if (req.method === "DELETE") {
     const id = req.query.id;

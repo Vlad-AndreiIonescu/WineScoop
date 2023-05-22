@@ -1,14 +1,26 @@
 import React from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 export const Header = () => {
-  return (
-    <section style={{ display: "flex", alignItems: "center", gap: "300px" }}>
-      <div className="imgDiv">
-        <img src="/wine-svgrepo-com.svg" alt="Logo" className="logo" />
-      </div>
+  const headerStyle = {
+    position: "absolute",
+    fontFamily: "Poppins, sans-serif",
+    fontWeight: "bold",
+    display: "flex",
+    gap: "20rem",
+    width: "fit-content",
+  };
 
+  const [isInputVisible, setInputVisible] = useState(false);
+
+  const handleButtonClick = () => {
+    setInputVisible(!isInputVisible);
+  };
+
+  return (
+    <div style={headerStyle} className="section">
       <div className="button-container">
         <a className="btn-outline-primary" href="ceva" role="button">
           Home
@@ -16,7 +28,7 @@ export const Header = () => {
         <a className="btn-outline-primary" href="ceva" role="button">
           About
         </a>
-        <a className="btn-outline-primary" href="ceva" role="button">
+        <a className="btn-outline-primary" href="products" role="button">
           Products
         </a>
         <a className="btn-outline-primary" href="ceva" role="button">
@@ -26,19 +38,29 @@ export const Header = () => {
           Contact
         </a>
       </div>
+
       <div className="input-group">
-        <input type="search" id="form1" className="form-control custom-input" />
+        {isInputVisible && (
+          <input
+            type="search"
+            id="form1"
+            className="form-control custom-input"
+          />
+        )}
         <button
           type="button"
           className="btn btn-secondary"
           style={{
             backgroundColor: "orange",
             border: "orange",
+            marginTop: "3.5rem",
+            marginBottom: "3rem",
           }}
+          onClick={handleButtonClick}
         >
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>
-    </section>
+    </div>
   );
 };
