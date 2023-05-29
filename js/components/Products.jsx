@@ -17,18 +17,6 @@ const Products = () => {
       console.log(error);
     }
   }
-  useEffect(() => {
-    postData();
-  }, []);
-
-  async function postData() {
-    try {
-      const response = await axios.patch("/api/records");
-      setProductsData(response.data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   const [currentPage, setCurrentPage] = useState(1);
   const goToPreviousPage = () => {
@@ -45,6 +33,8 @@ const Products = () => {
       setCurrentPage(nextPage);
     }
   };
+
+
   return (
     <div>
       <div
@@ -78,14 +68,14 @@ const Products = () => {
             </div>
           ))}
       </div>
-      <div class="text-center" style={{ padding: "2rem" }}>
-        <ul class="pagination pagination-lg">
-          <li class="page-item">
-            <a class="page-link" href="#" onClick={goToPreviousPage}>
+      <div className="text-center" style={{ padding: "2rem" }}>
+        <ul className="pagination pagination-lg">
+          <li className="page-item">
+            <a className="page-link" href="#" onClick={goToPreviousPage}>
               Previous
             </a>
           </li>
-          <li class="page-item">
+          <li className="page-item">
             <a
               className="page-link"
               href="#"
@@ -95,19 +85,10 @@ const Products = () => {
               Next
             </a>
           </li>
-          <a
-            class="btn btn-primary text-center"
-            href="#"
-            S
-            role="button"
-            style={{
-              paddingLeft: "2rem",
-            }}
-          >
-            Link
-          </a>
         </ul>
+        
       </div>
+      
     </div>
   );
 };

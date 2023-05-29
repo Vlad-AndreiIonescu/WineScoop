@@ -8,8 +8,10 @@ export const Header = () => {
     fontFamily: "Poppins, sans-serif",
     fontWeight: "bold",
     display: "flex",
-    gap: "20rem",
-    width: "fit-content",
+    justifyContent:"center",
+    // maxWidth: "800px",
+    border:"2px solid blue",
+    textAlign:"center"
   };
 
   const [isInputVisible, setInputVisible] = useState(false);
@@ -38,7 +40,7 @@ export const Header = () => {
         </a>
       </div>
 
-      <div className="input-group">
+      {/* <div className="input-group">
         {isInputVisible && (
           <input
             type="search"
@@ -59,7 +61,7 @@ export const Header = () => {
         >
           <FontAwesomeIcon icon={faSearch} />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

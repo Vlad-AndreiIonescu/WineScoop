@@ -7,7 +7,7 @@ export default function MainPage() {
     <div>
       <Header></Header>
       <FirstSection></FirstSection>
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
     </div>
   );
 }
